@@ -1,11 +1,15 @@
 {
   "name": "modern_portfolio",
   "version": "1.0.0",
-  "description": "\"portfolio\"",
+  "description": "My Portfolio",
   "main": "index.js",
-  "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  "dependencies": {
+    "node-sass": "^4.9.3"
   },
-  "author": "Gajanan Khatke",
+  "devDependencies": {},
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ -r"
+  },
+  "author": "",
   "license": "ISC"
 }
