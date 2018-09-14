@@ -1,0 +1,76 @@
+//for widescreens
+@include mediaXl{
+  
+ .projects{
+  grid-template-columns: repeat(4, 1fr);
+}
+
+}
+
+//for laptops
+@include mediaLg{
+  
+ .projects{
+  grid-template-columns: repeat(3, 1fr);
+}
+
+}
+
+//for tablets and small laptops
+@include mediaMd{
+ main{
+     text-align: center;
+     align-items: center;
+     
+ }   
+ ul.menu-nav,div.menu-branding{
+     float:none;
+     width: 100%;
+     min-height: 0;
+    &.show{
+        transform: translate3d(0,0,0);
+    }
+ }
+ .menu-nav {
+     height: 75vh;
+     font-size: 24px;
+     transform: translate3d(-100%, 0, 0);
+     @include easeOut;
+ }
+ .menu-branding {
+     height: 25vh;
+     transform: translate3d(100%, 0, 0);
+     .potrait{
+       height: 150px;
+       width: 150px;
+     }
+ }
+ .about-info{
+     grid-template-areas: 
+     'biopic'
+     'bio'
+     'job1'
+     'job2'
+     'job3';
+     grid-template-columns: 1fr;
+
+ }
+ .projects{
+   grid-template-columns: repeat(2, 1fr);
+ }
+}
+
+//for smartphone
+@include mediaSm{
+
+  .projects{
+    grid-template-columns: repeat(1, 1fr);
+  }
+    .boxes{
+      div{
+        font-size: 1.5rem;
+        padding: 1rem 1.5rem;
+      }
+    }
+
+}

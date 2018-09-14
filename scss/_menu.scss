@@ -6,38 +6,35 @@
     cursor: pointer;
     @include easeOut;
     .btn-line{
-        width: 30px;
-        height: 5px;
+        width: 25px;
+        height: 3px;
         margin: 0px 0px 5px 0px;
-        background-color: #fff;
+        background-color: set-text-color($primary-color);
         @include easeOut;
     }
-    &.close{
+    &.close {
         transform: rotate(180deg);
     
-        .btn-line{
-
-            //1st line rotate
-            &:nth-child(1){
-                transform: rotate(45deg) translate(5px 5px);
-                @include easeOut;
-            }
-            //2nd line hide
-            &:nth-child(2){
-                opacity: 0;
-            }
-        //     // 3rd line rotate
-        //     &:nth-child(3){
-        //         transform: rotate(-45deg);
-
-        //         background-color: red;
-
-        //     }
+        .btn-line {
+          // Line 1 - Rotate
+          &:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+          }
+    
+          // Line 2 - Hide
+          &:nth-child(2) {
+            opacity: 0;
+          }
+    
+          // Line 3 - Rotate
+          &:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+          }
         }
     }
 }
 .menu{
-    position: absolute;
+    position: fixed;
     visibility: hidden;
     top: 0px;
     width: 100%;
@@ -61,34 +58,42 @@
             background-color: darken($primary-color,5);
             opacity: 0.9;
             margin: 0px;
+            list-style: none;
             transform: translate3d(0, -100%, 0);
             @include easeOut;
             &.show{
                 transform: translate3d(0, 0, 0);
-                @include easeOut;
             }
         }
 
         .nav-item{
-            list-style-type: none;
-            font-size: 1.7rem;
-            padding: 5px;
-            // // transform: translate3d(0, 0, 0);
-            // // @include easeOut;
-            // // &.show{
-                
-            // //     transform: translate3d(-100%, 0, 0);
-            // //     @include easeOut;
-            // }
+            transform: translate3d(600px, 0, 0);
+            @include easeOut;
+            &.show{
+                 transform: translate3d(0, 0, 0);
+            }
+            
+             
             .nav-link{
-                color: #fff;
+                display: inline-block;
+                position: relative;
+                font-size: 25px;
+                text-transform: uppercase;
+                padding: 1rem 0;
+                font-weight: normal;
+                color: set-text-color($primary-color);
                 text-decoration: none;
+                @include easeOut;
                 &:hover{
                     color: $secondary-color;
                     @include easeOut;
                 }
             }
-        }  
+            &.active > a{
+                color: $secondary-color;
+        }
+        
+    }  
     &-branding{
         background-color: $primary-color;
         font-size: 6rem;
@@ -112,4 +117,10 @@
         }
     }
     
+}
+
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{($x)}) {
+        transition-delay: $x * 0.1s;
+    }
 }
